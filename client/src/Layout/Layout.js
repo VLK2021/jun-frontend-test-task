@@ -28,6 +28,8 @@ const Layout = () => {
         });
     }, []);
 
+
+
     return (
         <div className={'Layout'}>
             {<div className={'vid'}>Princess Diana: {horsePD}</div>}
