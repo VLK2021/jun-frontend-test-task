@@ -3,15 +3,20 @@ import {io} from "socket.io-client";
 
 import './HorsesStyle.css';
 import PrincessDiana from "../../components/PrincessDiana/PrincessDiana";
+import Cricket from "../../components/Cricket/Cricket";
+import Rebel from "../../components/Rebel/Rebel";
+import Lusy from "../../components/Lusy/Lusy";
+import Lacey from "../../components/Lacey/Lacey";
+import Ginger from "../../components/Ginger/Ginger";
 
 
 const Horses = () => {
     const [horsePD, setHorsePD] = useState({});
-    const [horseCricket, setHorseCricket] = useState(null);
-    const [horseRebel, setHorseRebel] = useState(null);
-    const [horseLusy, setHorseLusy] = useState(null);
-    const [horseLacey, setHorseLacey] = useState(null);
-    const [horseGinger, setHorseGinger] = useState(null);
+    const [horseCricket, setHorseCricket] = useState({});
+    const [horseRebel, setHorseRebel] = useState({});
+    const [horseLusy, setHorseLusy] = useState({});
+    const [horseLacey, setHorseLacey] = useState({});
+    const [horseGinger, setHorseGinger] = useState({});
 
 
     useEffect(() => {
@@ -20,22 +25,23 @@ const Horses = () => {
         socket.emit('start')
         socket.on('ticker', function (round) {
             setHorsePD(round[0]);
-            setHorseCricket(round[1].distance);
-            setHorseRebel(round[2].distance);
-            setHorseLusy(round[3].distance);
-            setHorseLacey(round[4].distance);
-            setHorseGinger(round[5].distance);
+            setHorseCricket(round[1]);
+            setHorseRebel(round[2]);
+            setHorseLusy(round[3]);
+            setHorseLacey(round[4]);
+            setHorseGinger(round[5]);
         });
     }, []);
+
 
     return (
         <div className={'Horses'}>
             <PrincessDiana horsePD={horsePD}/>
-            {<div className={'vid'}>Cricket: {horseCricket}</div>}
-            {<div className={'vid'}>Rebel: {horseRebel}</div>}
-            {<div className={'vid'}>Lusy: {horseLusy}</div>}
-            {<div className={'vid'}>Lacey: {horseLacey}</div>}
-            {<div className={'vid'}>Ginger: {horseGinger}</div>}
+            <Cricket horseCricket={horseCricket}/>
+            <Rebel horseRebel={horseRebel}/>
+            <Lusy horseLusy={horseLusy}/>
+            <Lacey horseLacey={horseLacey}/>
+            <Ginger horseGinger={horseGinger}/>
         </div>
     );
 };

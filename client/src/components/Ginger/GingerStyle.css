@@ -1,10 +1,10 @@
-.PrincessDiana {
+.Ginger {
     width: 70%;
     min-height: 2rem;
     background: var(--var-bg);
     padding: 0.5rem;
     border-radius: 1rem;
-    box-shadow: var(--var-box-shadow) ;
+    box-shadow: var(--var-box-shadow);
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -15,4 +15,3 @@
     text-shadow: var(--var-box-shadow);
     margin-bottom: 1rem;
 }
-
